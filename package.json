@@ -1,0 +1,92 @@
+{
+  "name": "@carvana/tdd-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TDD JavaScript Demo",
+  "authors": [
+    "Carvana"
+  ],
+  "engines": {
+    "node": ">= 7.6.0 < 12.0.0",
+    "npm": ">=6.0.0"
+  },
+  "dependencies": {
+    "@carvana/analytics": "1.0.6",
+    "@carvana/theme": "2.0.0",
+    "axios": "0.18.0",
+    "axios-mock-adapter": "1.16.0",
+    "connected-react-router": "6.3.2",
+    "history": "4.9.0",
+    "lodash.debounce": "4.0.8",
+    "prop-types": "15.7.2",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-redux": "7.0.1",
+    "react-router-dom": "5.0.0",
+    "recompose": "0.30.0",
+    "redux": "4.0.1",
+    "redux-logger": "3.0.6",
+    "redux-mock-store": "1.5.3",
+    "redux-thunk": "2.3.0",
+    "reselect": "4.0.0",
+    "styled-components": "4.2.0"
+  },
+  "scripts": {
+    "engines-check": "ignition engines",
+    "lint": "ignition lint",
+    "test": "ignition jest",
+    "cypress:open": "concurrently \"npm run start:dev\" \"cypress open\"",
+    "cypress:run": "cypress run --config baseUrl=http://localhost:3001",
+    "cypress:ci:dev": "start-server-and-test start:ci:server:dev http://localhost:3001 cypress:run",
+    "cypress:ci:test": "start-server-and-test start:ci:server:test http://localhost:3001 cypress:run",
+    "cypress:ci:uat": "start-server-and-test start:ci:server:uat http://localhost:3001 cypress:run",
+    "cypress:ci:prod": "start-server-and-test start:ci:server:prod http://localhost:3001 cypress:run",
+    "start:ci:server:dev": "npm run build:dev && npm run server",
+    "start:ci:server:test": "npm run build:test && npm run server",
+    "start:ci:server:uat": "npm run build:uat && npm run server",
+    "start:ci:server:prod": "npm run build:prod && npm run server",
+    "start": "ignition start-app --mode=development",
+    "start:dev": "ignition start-app --mode=development",
+    "start:test": "ignition start-app --mode=test",
+    "start:uat": "ignition start-app --mode=uat",
+    "start:prod": "ignition start-app --mode=production",
+    "server": "node build/server.js",
+    "build:dev": "ignition build-app --mode=development && ignition build-server --mode=development",
+    "build:test": "ignition build-app --mode=test && ignition build-server --mode=test",
+    "build:prod": "ignition build-app --mode=production && ignition build-server --mode=production",
+    "build:uat": "ignition build-app --mode=uat && ignition build-server --mode=uat",
+    "prepare": "npm run engines-check && npm run lint && npm run test && npm run build:prod"
+  },
+  "devDependencies": {
+    "@carvana/eslint-config": "1.0.5",
+    "@carvana/ignition": "2.0.16",
+    "concurrently": "4.1.0",
+    "cypress": "3.2.0",
+    "enzyme": "3.9.0",
+    "enzyme-adapter-react-16": "1.12.1",
+    "express": "4.16.4",
+    "husky": "1.3.1",
+    "jest": "24.7.1",
+    "lint-staged": "8.1.5",
+    "prettier": "1.16.4",
+    "react-test-renderer": "16.8.6",
+    "start-server-and-test": "1.7.13"
+  },
+  "eslintConfig": {
+    "extends": "@carvana"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{js,css}": [
+        "prettier --write",
+        "eslint --fix",
+        "git add"
+      ]
+    }
+  }
+}

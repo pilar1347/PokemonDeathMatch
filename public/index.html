@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#00aed9">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <title>tdd-demo</title>
+
+    <script type="text/javascript">
+      var appInsightKey = '<%= process.env.CARVANA_APP_APP_INSIGHTS_KEY %>',
+          appInsightUrl = '<%= process.env.CARVANA_APP_APP_INSIGHTS_URL %>',
+          googleTagManagerId = '<%= process.env.CARVANA_APP_GTM_ID %>';
+    </script>
+
+    <script type="text/javascript">
+        var appInsights = window.appInsights || function (config) {
+            function i(config) {
+                t[config] = function () {
+                    var i = arguments;
+                    t.queue.push(function () {
+                        t[config].apply(t, i)
+                    })
+                }
+            }
+            var t = {
+                config: config
+            },
+                u = document,
+                e = window,
+                o = "script",
+                s = "AuthenticatedUserContext",
+                h = "start",
+                c = "stop",
+                l = "Track",
+                a = l + "Event",
+                v = l + "Page",
+                y = u.createElement(o),
+                r, f;
+            y.src = config.url || appInsightUrl;
+            u.getElementsByTagName(o)[0].parentNode.appendChild(y);
+            try {
+                t.cookie = u.cookie
+            } catch (p) { }
+            for (t.queue = [], t.version = "1.0", r = ["Event", "Exception", "Metric", "PageView", "Trace", "Dependency"]; r.length;) i("track" + r.pop());
+            return i("set" + s), i("clear" + s), i(h + a), i(c + a), i(h + v), i(c + v), i("flush"), config.disableExceptionTracking || (r = "onerror", i("_" + r), f = e[r], e[r] = function (config, i, u, e, o) {
+                var s = f && f(config, i, u, e, o);
+                return s !== !0 && t["_" + r](config, i, u, e, o), s
+            }), t
+        }({
+            instrumentationKey: appInsightKey
+        });
+        window.appInsights = appInsights;
+        appInsights.trackPageView();
+    </script>
+   <script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', googleTagManagerId);
+</script>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+  </body>
+</html>
