@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import HeaderBar from "./Bar";
+import styled from 'styled-components';
+import HeaderBar from './Bar';
 
 export const HeaderWrapper = styled.div`
   display: flex;

@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const LogoSvgWrapper = styled.svg`
   width: 100%;
@@ -44,7 +44,7 @@ LogoSvg.propTypes = {
 };
 
 LogoSvg.defaultProps = {
-  className: ""
+  className: ''
 };
 
 export default LogoSvg;

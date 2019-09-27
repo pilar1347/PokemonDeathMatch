@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { BarWrapper } from "./Bar.styles";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { BarWrapper } from './Bar.styles';
 
 const Bar = ({ className, children }) => (
   <BarWrapper className={className}>{children}</BarWrapper>
@@ -12,7 +12,7 @@ Bar.propTypes = {
 };
 
 Bar.defaultProps = {
-  className: ""
+  className: ''
 };
 
 export default Bar;

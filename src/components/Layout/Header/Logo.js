@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import LogoSvg from "./Logo.svg";
-import { LogoWrapper } from "./Logo.styles";
+import React from 'react';
+import PropTypes from 'prop-types';
+import LogoSvg from './Logo.svg';
+import { LogoWrapper } from './Logo.styles';
 
 const Logo = ({ className }) => (
   <LogoWrapper className={className}>
@@ -14,7 +14,7 @@ Logo.propTypes = {
 };
 
 Logo.defaultProps = {
-  className: ""
+  className: ''
 };
 
 export default Logo;
