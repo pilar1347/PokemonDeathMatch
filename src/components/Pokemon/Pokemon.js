@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { fetchPokemon } from '../../services';
+import React, { useEffect, useState } from "react";
+import { fetchPokemon } from "../../services";
 import {
   MainWrapper,
   Title,
@@ -7,12 +7,12 @@ import {
   Card,
   Button,
   ButtonWrapper
-} from './Pokemon.styles';
-import Loader from './Loader';
+} from "./Pokemon.styles";
+import Loader from "./Loader";
 
 const Pokemon = () => {
   const [pokemon, setPokemon] = useState([]);
-  const [nav, setNav] = useState({ next: '', prev: '' });
+  const [nav, setNav] = useState({ next: "", prev: "" });
   const [loading, setLoading] = useState(true);
   const fetchData = async url => {
     const { results, next, prev } = await fetchPokemon(url);
@@ -25,7 +25,7 @@ const Pokemon = () => {
   };
 
   useEffect(() => {
-    fetchData('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=21');
+    fetchData("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=21");
   }, []);
 
   const navigateCards = async direction => {
@@ -48,14 +48,14 @@ const Pokemon = () => {
       <ButtonWrapper>
         <Button
           data-test="prev-button"
-          onClick={() => navigateCards('prev')}
+          onClick={() => navigateCards("prev")}
           disabled={!nav.prev}
         >
           Prev
         </Button>
         <Button
           data-test="next-button"
-          onClick={() => navigateCards('next')}
+          onClick={() => navigateCards("next")}
           disabled={!nav.next}
         >
           Next

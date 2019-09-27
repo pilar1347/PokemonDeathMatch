@@ -76,9 +76,7 @@
     "extends": "@carvana"
   },
   "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "hooks": {}
   },
   "lint-staged": {
     "linters": {

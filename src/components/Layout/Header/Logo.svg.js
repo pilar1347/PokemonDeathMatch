@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
 const LogoSvgWrapper = styled.svg`
   width: 100%;
@@ -8,7 +8,11 @@ const LogoSvgWrapper = styled.svg`
 `;
 
 const LogoSvg = ({ className }) => (
-  <LogoSvgWrapper className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 153 35">
+  <LogoSvgWrapper
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 153 35"
+  >
     <title>Carvana</title>
     <g>
       <path
@@ -40,7 +44,7 @@ LogoSvg.propTypes = {
 };
 
 LogoSvg.defaultProps = {
-  className: ''
+  className: ""
 };
 
 export default LogoSvg;

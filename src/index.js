@@ -1,7 +1,7 @@
-import { render } from 'react-dom';
-import App from './App';
+import { render } from "react-dom";
+import App from "./App";
 
-const target = document.querySelector('#root');
+const target = document.querySelector("#root");
 
 function renderApp(Component) {
   render(Component, target);
@@ -10,7 +10,7 @@ function renderApp(Component) {
 renderApp(App);
 
 if (module && module.hot) {
-  module.hot.accept('./App', () => {
+  module.hot.accept("./App", () => {
     /* eslint "global-require": "off" */
     renderApp(App);
   });
