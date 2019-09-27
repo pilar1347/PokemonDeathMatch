@@ -12,7 +12,6 @@ renderApp(App);
 if (module && module.hot) {
   module.hot.accept('./App', () => {
     /* eslint "global-require": "off" */
-    const DevRoutes = require('./App').default;
-    renderApp(DevRoutes);
+    renderApp(App);
   });
 }

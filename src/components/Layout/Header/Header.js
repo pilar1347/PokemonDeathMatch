@@ -7,7 +7,6 @@ const Header = () => (
     <Bar>
       <Logo />
     </Bar>
-    <Title>React UI Template</Title>
   </HeaderWrapper>
 );
 
