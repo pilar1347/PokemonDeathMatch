@@ -4,16 +4,19 @@ import {
   MainWrapper,
   Title,
   ContentWrapper,
-  Card,
   Button,
   ButtonWrapper
 } from './Pokemon.styles';
 import Loader from './Loader';
+import Fight from './Fight';
+import Card from './Card';
 
 const Pokemon = () => {
   const [pokemon, setPokemon] = useState([]);
   const [nav, setNav] = useState({ next: '', prev: '' });
   const [loading, setLoading] = useState(true);
+  const [contenders, setContenders] = useState([]);
+
   const fetchData = async url => {
     const { results, next, prev } = await fetchPokemon(url);
     setPokemon(results);
@@ -28,22 +31,25 @@ const Pokemon = () => {
     fetchData('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=21');
   }, []);
 
-  const navigateCards = async direction => {
+  const navigateCards = direction => {
     setLoading(true);
     fetchData(nav[direction]);
   };
 
+  const updateContenders = guy => {
+    console.log('selected', guy);
+    setContenders([...contenders, guy]);
+  };
+
   return (
     <MainWrapper>
-      <Title>Pokemon</Title>
+      <Title>Pokemon Death Match</Title>
+      <Fight contenders={contenders} />
       <ContentWrapper>
-        {pokemon.map(({ name, sprites }) => (
-          <Card key={name}>
-            <p>{name}</p>
-            <img src={sprites.front_default} alt={name} />
-          </Card>
+        {pokemon.map(guy => (
+          <Card guy={guy} update={updateContenders} key={guy.name} />
         ))}
-        {loading && <Loader />}
+        {loading && <Loader data-test="loader" />}
       </ContentWrapper>
       <ButtonWrapper>
         <Button
