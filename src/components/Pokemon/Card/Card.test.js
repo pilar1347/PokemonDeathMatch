@@ -4,7 +4,6 @@ import { ThemeProvider } from '@carvana/theme';
 import Card from './Card';
 
 describe('Card', () => {
-  const update = jest.fn();
   const guy = {
     name: 'ivysaur',
     sprites: { front_default: '' }
@@ -25,7 +24,6 @@ describe('Card', () => {
 
   it('Should render pokemon name', () => {
     const { getByText } = renderCard({
-      update,
       guy
     });
     expect(getByText('ivysaur')).toBeTruthy();

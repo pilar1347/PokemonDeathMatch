@@ -21,11 +21,12 @@ const Card = ({
 };
 
 Card.defaultProps = {
-  contenders: []
+  contenders: [],
+  update: f => f
 };
 
 Card.propTypes = {
-  update: PropTypes.func.isRequired,
+  update: PropTypes.func,
   guy: PropTypes.shape({}).isRequired,
   contenders: PropTypes.arrayOf(
     PropTypes.shape({})
