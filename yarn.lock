@@ -1009,6 +1009,10 @@
     svgo "1.1.1"
     vanillas "0.1.19"
 
+"@carvana/icons@^1.0.23":
+  version "1.0.23"
+  resolved "https://repo.carvana.com/repository/carvana-npm-all/@carvana/icons/-/icons-1.0.23.tgz#61ddd1e3a4bba8039f0182c66bfa99851710c107"
+
 "@carvana/ignition@2.0.16":
   version "2.0.16"
   resolved "https://repo.carvana.com/repository/carvana-npm-all/@carvana/ignition/-/ignition-2.0.16.tgz#84be193bad897dcaccd5d3df5838312c4e518b29"

@@ -11,11 +11,15 @@ const Card = ({
   contenders
 }) => {
   const { name, sprites } = guy;
+  // const isContender = contenders.find(contender => {
+  //   return contender.name === name;
+  // });
 
   return (
     <PokemonCard onClick={() => update(guy)} data-testid="card">
       <p>{name}</p>
       <img src={sprites.front_default} alt={name} />
+      {/* {isContender && <Check data-testid="checkmark" />} */}
     </PokemonCard>
   );
 };
