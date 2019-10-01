@@ -8,7 +8,7 @@ import {
   ButtonWrapper
 } from './Pokemon.styles';
 import Loader from './Loader';
-import Fight from './Fight';
+import Ring from './Ring';
 import Card from './Card';
 
 const Pokemon = () => {
@@ -44,7 +44,7 @@ const Pokemon = () => {
   return (
     <MainWrapper>
       <Title>Pokemon Death Match</Title>
-      <Fight contenders={contenders} />
+      <Ring contenders={contenders} />
       <ContentWrapper>
         {pokemon.map(guy => (
           <Card guy={guy} update={updateContenders} key={guy.name} />

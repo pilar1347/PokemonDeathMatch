@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Fighter from './Fighter';
+import Fighter from '../Fighter';
 import {
   Ring,
-  FightButton
-} from './Fight.styles';
+  FightButton,
+  ClearButton,
+  FightButtonWrapper
+} from './Ring.styles';
 
 const Fight = ({ contenders }) => {
   return (
@@ -16,7 +18,10 @@ const Fight = ({ contenders }) => {
           <p>Please select some dudes.</p>
         )}
       </Ring>
-      <FightButton data-test="fight-button">Fight!</FightButton>
+      <FightButtonWrapper>
+        <ClearButton data-test="clear-button">Clear</ClearButton>
+        <FightButton data-test="fight-button">Fight!</FightButton>
+      </FightButtonWrapper>
     </>
   );
 };
