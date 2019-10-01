@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Fighter from '../Fighter';
 import {
@@ -8,10 +8,21 @@ import {
   FightButtonWrapper,
   WinnerName
 } from './Ring.styles';
+import FightLogic from './FightLogic';
 
 const Fight = ({ contenders, clear }) => {
+  const shouldShowClearButton = contenders.length > 0;
+  const shouldShowFightButton = contenders.length >= 2;
+  const [winner, useWinner] = useState('');
+
+  const fight = () => {
+    const fightResults = FightLogic(contenders);
+    useWinner(fightResults);
+  };
+
   return (
     <>
+      {winner && <WinnerName data-testid="winner">{winner} is the Champion!</WinnerName>}
       <Ring data-testid="fight-ring">
         {contenders.length ? contenders.map(guy => {
           return <Fighter guy={guy} key={guy.name} />;
@@ -20,8 +31,8 @@ const Fight = ({ contenders, clear }) => {
         )}
       </Ring>
       <FightButtonWrapper>
-        <ClearButton data-testid="clear-button" onClick={clear}>Clear</ClearButton>
-        <FightButton data-testid="fight-button">Fight!</FightButton>
+        {shouldShowClearButton && <ClearButton data-testid="clear-button" onClick={clear}>Clear</ClearButton>}
+        {shouldShowFightButton && <FightButton data-testid="fight-button" onClick={fight}>Fight!</FightButton>}
       </FightButtonWrapper>
     </>
   );

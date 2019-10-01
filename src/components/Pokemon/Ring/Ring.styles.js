@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { Button, ButtonWrapper } from '../Pokemon.styles';
 
 export const Ring = styled.div`
-  height: 400px;
   width: 900px;
   display: flex;
   margin: 10px auto;

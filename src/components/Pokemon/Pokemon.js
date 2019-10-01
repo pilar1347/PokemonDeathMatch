@@ -37,7 +37,16 @@ const Pokemon = () => {
   };
 
   const updateContenders = guy => {
-    setContenders([...contenders, guy]);
+    if (contenders.length >= 3) {
+      return;
+    }
+    const isSelected = contenders.find(x => x.name === guy.name);
+    if (isSelected) {
+      const newContenders = contenders.filter(x => x.name !== guy.name);
+      setContenders(newContenders);
+    } else {
+      setContenders([...contenders, guy]);
+    }
   };
 
   const clearContenders = () => {

@@ -28,4 +28,21 @@ describe('Card', () => {
     });
     expect(getByText('ivysaur')).toBeTruthy();
   });
+
+  it('Should show checkmark when selected by a user', () => {
+    const { queryByTestId } = renderCard({ guy, contenders });
+
+    expect(queryByTestId('checkmark')).toBeTruthy();
+  });
+
+  it('Should not show checkmark when not selected by a user', () => {
+    const { queryByTestId } = renderCard({
+      guy: {
+        name: 'charmander',
+        sprites: { front_default: '' }
+      },
+      contenders
+    });
+    expect(queryByTestId('checkmark')).toBeNull();
+  });
 });

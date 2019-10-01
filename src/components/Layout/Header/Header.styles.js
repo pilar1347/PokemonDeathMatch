@@ -4,7 +4,7 @@ import HeaderBar from './Bar';
 export const HeaderWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 120px;
+  height: 50px;
 `;
 
 export const Bar = styled(HeaderBar)`

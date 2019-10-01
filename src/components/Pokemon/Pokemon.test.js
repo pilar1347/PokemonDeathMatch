@@ -74,4 +74,26 @@ describe('Pokemon', () => {
     fireEvent.click(getByText('Clear'));
     expect(queryAllByTestId('fighter').length).toBe(0);
   });
+
+  it('Should only allow max of 3 selections', async () => {
+    const { queryAllByTestId } = await renderPokemon();
+    const cards = queryAllByTestId('card');
+
+    fireEvent.click(cards[0]);
+    fireEvent.click(cards[1]);
+    fireEvent.click(cards[2]);
+    fireEvent.click(cards[3]);
+
+    expect(queryAllByTestId('fighter').length).toBe(3);
+  });
+
+  it('Click should deselect selected pokemon', async () => {
+    const { queryAllByTestId } = await renderPokemon();
+    const cards = queryAllByTestId('card');
+
+    fireEvent.click(cards[0]);
+    fireEvent.click(cards[0]);
+
+    expect(queryAllByTestId('fighter').length).toBe(0);
+  });
 });

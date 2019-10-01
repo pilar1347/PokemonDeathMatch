@@ -11,11 +11,13 @@ const Card = ({
   contenders
 }) => {
   const { name, sprites } = guy;
+  const isPokemonSelected = contenders.find(x => x.name === name);
 
   return (
     <PokemonCard onClick={() => update(guy)} data-testid="card">
       <p>{name}</p>
       <img src={sprites.front_default} alt={name} />
+      {isPokemonSelected && <Check data-testid="checkmark" />}
     </PokemonCard>
   );
 };
